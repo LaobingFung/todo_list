@@ -36,7 +36,9 @@ function add() {
     if (state !== 'completed') {
       displayNewItem(item, todoList.list.length);
     }
-    displayLeftItems(todoList.getActive());
+    let activeList = todoList.getActive();
+    displayLeftItems(activeList);
+    displayClearCompleted(activeList);
   }
 }
 
@@ -53,7 +55,9 @@ function complete() {
     todoList.complete(index);
     localStorage.setItem('todoList', JSON.stringify(todoList.list));
     addDeleteLine(target);
-    displayLeftItems(todoList.getActive());
+    let activeList = todoList.getActive();
+    displayLeftItems(activeList);
+    displayClearCompleted(activeList);
   }
 }
 
@@ -69,7 +73,9 @@ function deleteItem() {
     todoList.delete(index);
     localStorage.setItem('todoList', JSON.stringify(todoList.list));
     displayDeleteItem(index);
-    displayLeftItems(todoList.getActive());
+    let activeList = todoList.getActive();
+    displayLeftItems(activeList);
+    displayClearCompleted(activeList);
   }
 }
 
@@ -107,6 +113,15 @@ function mouseOutItem() {
     target.childNodes[1].classList.add('btn_hide');
   } else if (target.nodeName.toLowerCase() === 'button') {
     target.classList.add('btn_hide');
+  }
+}
+
+function clearCompletedOccur() {
+  let target = window.event.target;
+  if (parseInt(target.innerText) > 1) {
+    clearBtn.classList.remove('btn_hide');
+  } else {
+    clearBtn.classList.add('btn_hide');
   }
 }
 // class Event {

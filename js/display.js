@@ -48,8 +48,13 @@ function displayDeleteItem(I) {
   ul.removeChild(li);
 }
 
-function modifyClearCompleted() {
+function displayClearCompleted(itemArr) {
   //显示或隐藏Clear Completed按钮
+  if (itemArr.length > 1) {
+    clearBtn.classList.remove('btn_hide')
+  } else {
+    clearBtn.classList.add('btn_hide');
+  }
 }
 
 function addDeleteLine(element) {

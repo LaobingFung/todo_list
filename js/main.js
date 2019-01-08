@@ -5,6 +5,9 @@ var todoList = listStore === null ? new TodoList([]) : new TodoList(JSON.parse(l
 var ul = document.getElementById('todoList');
 var leftItems = document.getElementById('leftItems');
 var clear = document.getElementById('clear');
-var input = document.getElementById('todoInput')
+var input = document.getElementById('todoInput');
+var clearBtn = document.getElementById('clear');
+
+displayClearCompleted(todoList.getActive());
 
 clickAll()
