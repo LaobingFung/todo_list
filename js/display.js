@@ -36,6 +36,10 @@ function addItem(item, I) {
   // li.appendChild(content);
   li.innerText = item.content;
   li.setAttribute('id', `item${I}`)
+  let btn = document.createElement('button');
+  btn.innerText = 'X';
+  btn.classList.add('btn_hide');
+  li.appendChild(btn);
   ul.appendChild(li);
 }
 

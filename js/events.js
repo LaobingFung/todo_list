@@ -29,11 +29,13 @@ function add() {
   //向todoList增加item
   //向localStorage存储todoList
   //增加显示
-  let content = input.value;
-  let item = new Item(content, false);
-  localStorage.setItem('todoList', JSON.stringify(todoList.add(item)));
-  addItem(item, todoList.list.length);
-  displayLeftItems(todoList.getActive.length);
+  if (input.value !== '' && window.event.keyCode === 13) {
+    let content = input.value;
+    let item = new Item(content, false);
+    localStorage.setItem('todoList', JSON.stringify(todoList.add(item)));
+    addItem(item, todoList.list.length);
+    displayLeftItems(todoList.getActive());
+  }
 }
 
 function complete() {
