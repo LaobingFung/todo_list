@@ -59,6 +59,12 @@ function deleteItem() {
   //删除todoList的对应item
   //修改localStorage的存储
   //刷新显示
+  let target = window.event.target;
+  if (target.nodeName.toLowerCase() === 'button') {
+    let index = target.parentElement.id.match(/[0-9]+/);
+    todoList.delete(index);
+    localStorage.setItem('todoList', JSON.stringify(todoList.list));
+  }
 }
 
 function clearCompleted() {

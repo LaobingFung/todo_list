@@ -43,6 +43,11 @@ function displayNewItem(item, I) {
   ul.appendChild(li);
 }
 
+function displayDeleteItem(I) {
+  let li = ul.childNodes[I];
+  ul.removeChild(li);
+}
+
 function modifyClearCompleted() {
   //显示或隐藏Clear Completed按钮
 }
