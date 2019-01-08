@@ -33,7 +33,9 @@ function add() {
     let content = input.value;
     let item = new Item(content, false);
     localStorage.setItem('todoList', JSON.stringify(todoList.add(item)));
-    addItem(item, todoList.list.length);
+    if (state !== 'completed') {
+      displayNewItem(item, todoList.list.length);
+    }
     displayLeftItems(todoList.getActive());
   }
 }

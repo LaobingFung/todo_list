@@ -29,7 +29,7 @@ function displayLeftItems(itemArr) {
   leftItems.innerText = itemArr.length
 }
 
-function addItem(item, I) {
+function displayNewItem(item, I) {
   //显示新添加的item
   let li = document.createElement('li');
   // let content = document.createTextNode(item.content);
