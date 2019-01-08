@@ -77,6 +77,19 @@ function clearCompleted() {
   //删除todoList的对应item
   //修改localStorage的存储
   //刷新显示
+  todoList.list = todoList.getActive();
+  localStorage.setItem('todoList', JSON.stringify(todoList.list));
+  switch (state) {
+    case 'active':
+      clickActive();
+      break;
+    case 'completed':
+      clickCompleted();
+      break;
+    default:
+      clickAll();
+      break;
+  }
 }
 
 function mouseOverItem() {
