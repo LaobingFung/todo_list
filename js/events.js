@@ -40,6 +40,12 @@ function complete() {
   //修改todoList的对应item的completed状态
   //修改localStorage的存储
   //刷新显示
+  let target = window.event.target;
+  target.classList.add('completed');
+  let index = target.id.match(/[0-9]+/);
+  todoList.complete(index);
+  localStorage.setItem('todoList', JSON.stringify(todoList.list));
+  addDeleteLine(target);
 }
 
 function deleteItem() {

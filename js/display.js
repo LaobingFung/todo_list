@@ -4,7 +4,11 @@ function displayList(itemArr, ul) {
     let li = document.createElement('li');
     let content = document.createTextNode(curItem.content);
     li.appendChild(content);
+    // li.innerText = curItem.content;
     li.setAttribute('id', `item${I}`)
+    if (curItem.completed === true) {
+      li.classList.add('completed');
+    }
     ul.appendChild(li);
   })
 }
@@ -34,8 +38,9 @@ function modifyClearCompleted() {
   //显示或隐藏Clear Completed按钮
 }
 
-function addDeleteLine() {
+function addDeleteLine(element) {
   //给todo事项添加删除线
+  element.classList.add('completed');
 }
 
 function deleteBtn() {
