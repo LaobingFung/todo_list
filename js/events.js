@@ -59,6 +59,22 @@ function clearCompleted() {
   //修改localStorage的存储
   //刷新显示
 }
+
+function mouseOverItem() {
+  let target = window.event.target;
+  if (target.nodeName.toLowerCase() == 'li') {
+    target.childNodes[1].classList.remove('btn_hide');
+    target.childNodes[1].classList.add('btn_occur');
+  }
+}
+
+function mouseOutItem() {
+  let target = window.event.target;
+  if (target.nodeName.toLowerCase() == 'li') {
+    target.childNodes[1].classList.remove('btn_occur');
+    target.childNodes[1].classList.add('btn_hide');
+  }
+}
 // class Event {
 //   constructor() {
 //     this.localStorage = window.localStorage;
