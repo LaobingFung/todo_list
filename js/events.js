@@ -48,6 +48,7 @@ function complete() {
   todoList.complete(index);
   localStorage.setItem('todoList', JSON.stringify(todoList.list));
   addDeleteLine(target);
+  displayLeftItems(todoList.getActive());
 }
 
 function deleteItem() {
