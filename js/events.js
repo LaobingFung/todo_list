@@ -67,17 +67,19 @@ function clearCompleted() {
 
 function mouseOverItem() {
   let target = window.event.target;
-  if (target.nodeName.toLowerCase() == 'li') {
+  if (target.nodeName.toLowerCase() === 'li') {
     target.childNodes[1].classList.remove('btn_hide');
-    target.childNodes[1].classList.add('btn_occur');
+  } else if (target.nodeName.toLowerCase() === 'button') {
+    target.classList.remove('btn_hide');
   }
 }
 
 function mouseOutItem() {
   let target = window.event.target;
-  if (target.nodeName.toLowerCase() == 'li') {
-    target.childNodes[1].classList.remove('btn_occur');
+  if (target.nodeName.toLowerCase() === 'li') {
     target.childNodes[1].classList.add('btn_hide');
+  } else if (target.nodeName.toLowerCase() === 'button') {
+    target.classList.add('btn_hide');
   }
 }
 // class Event {
