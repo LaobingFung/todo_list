@@ -47,7 +47,9 @@ function complete() {
   let target = window.event.target;
   if (target.nodeName.toLowerCase() === 'li') {
     // target.classList.add('completed');
-    let index = target.id.match(/[0-9]+/);
+    // let index = target.id.match(/[0-9]+/);
+    let nodeListArr = Array.from(target.parentElement.childNodes);
+    let index = nodeListArr.findIndex((curNode) => curNode.innerText === target.innerText);
     todoList.complete(index);
     localStorage.setItem('todoList', JSON.stringify(todoList.list));
     addDeleteLine(target);
@@ -61,9 +63,13 @@ function deleteItem() {
   //刷新显示
   let target = window.event.target;
   if (target.nodeName.toLowerCase() === 'button') {
-    let index = target.parentElement.id.match(/[0-9]+/);
+    // let index = target.parentElement.id.match(/[0-9]+/);
+    let nodeListArr = Array.from(target.parentElement.parentElement.childNodes);
+    let index = nodeListArr.findIndex((curNode) => curNode.innerText === target.parentElement.innerText);
     todoList.delete(index);
     localStorage.setItem('todoList', JSON.stringify(todoList.list));
+    displayDeleteItem(index);
+    displayLeftItems(todoList.getActive());
   }
 }
 

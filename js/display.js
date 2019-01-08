@@ -5,7 +5,7 @@ function displayList(itemArr, ul) {
     // let content = document.createTextNode(curItem.content);
     // li.appendChild(content);
     li.innerText = curItem.content;
-    li.setAttribute('id', `item${I}`)
+    // li.setAttribute('id', `item${I}`)
     if (curItem.completed === true) {
       li.classList.add('completed');
     }
@@ -35,7 +35,7 @@ function displayNewItem(item, I) {
   // let content = document.createTextNode(item.content);
   // li.appendChild(content);
   li.innerText = item.content;
-  li.setAttribute('id', `item${I}`)
+  // li.setAttribute('id', `item${I}`)
   let btn = document.createElement('button');
   btn.innerText = 'X';
   btn.classList.add('btn_hide');
