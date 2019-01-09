@@ -8,6 +8,7 @@ function displayList(itemArr, ul) {
     let btn = document.createElement('button');
     btn.innerText = 'X';
     btn.classList.add('btn_hide');
+    btn.classList.add('delete_btn');
     li.appendChild(btn);
     ul.appendChild(li);
   })
@@ -30,6 +31,7 @@ function displayNewItem(item, I) {
   let btn = document.createElement('button');
   btn.innerText = 'X';
   btn.classList.add('btn_hide');
+  btn.classList.add('delete_btn');
   li.appendChild(btn);
   ul.appendChild(li);
 }
