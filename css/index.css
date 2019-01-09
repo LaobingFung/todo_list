@@ -9,3 +9,22 @@
   height: 650px;
   margin: 50px auto;
 }
+.head {
+  height: 83px;
+}
+.title {
+  height: 40;
+  text-align: center;
+  background: rgb(150, 150, 150);
+  font-size: 30px;
+}
+.input {
+  height: 43px;
+  text-align: center;
+  background: rgb(200, 200, 200);
+}
+.input input {
+  margin-top: 5px;
+  width: 90%;
+  font-size: 24px;
+}
