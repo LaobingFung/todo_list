@@ -28,6 +28,7 @@ function add() {
     let activeList = todoList.getActive();
     displayLeftItems(activeList);
     displayClearCompleted(activeList);
+    input.value = '';
   }
 }
 
