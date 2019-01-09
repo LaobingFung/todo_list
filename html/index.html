@@ -18,25 +18,31 @@
   <body>
     <div class="container">
       <div class="head">
-        <div class="title">Todo List</div>
+        <div class="title">
+          Todo List
+        </div>
         <div class="input" onkeydown="add()">
-          <input id="todoInput" type="text" placeholder="请输入待办事项，回车添加" />
+          <input id="todoInput" placeholder="请输入待办事项，回车添加" type="text"/>
         </div>
       </div>
       <div class="list">
         <ul id="todoList" onclick="complete(); deleteItem()" onmouseout="mouseOutItem()" onmouseover="mouseOverItem()">
         </ul>
       </div>
-      <div class="button">
-        <input id="all" onclick="clickAll()" type="button" value="ALL"/>
-        <input id="activate" onclick="clickActive()" type="button" value="ACTIVATE"/>
-        <input id="completed" onclick="clickCompleted()" type="button" value="COMPLETED"/>
-        <input id="clear" onclick="clearCompleted()" type="button" value="Clear Completed"/>
-      </div>
-      <div class="left_items">
-        Left items:
-        <label id="leftItems">
-        </label>
+      <div class="footer">
+        <div class="left_items">
+          <div class="count">
+            Left items:
+            <label id="leftItems">
+            </label>
+          </div>
+          <input id="clear" onclick="clearCompleted()" type="button" value="Clear Completed"/>
+        </div>
+        <div class="state_button">
+          <input id="all" onclick="clickAll()" type="button" value="ALL"/>
+          <input id="activate" onclick="clickActive()" type="button" value="ACTIVATE"/>
+          <input id="completed" onclick="clickCompleted()" type="button" value="COMPLETED"/>
+        </div>
       </div>
     </div>
     <script src="../js/main.js">

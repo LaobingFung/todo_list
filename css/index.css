@@ -28,3 +28,25 @@
   width: 90%;
   font-size: 24px;
 }
+.list {
+  height: 400px;
+}
+.footer {
+  height: 80px;
+  background: rgb(150, 150, 150);
+}
+.left_items {
+    margin-bottom: 10px;
+}
+.count {
+  margin-left: 10px;
+  margin-right: 170px;
+  display: inline-block;
+}
+.state_button {
+    text-align: center;
+}
+.state_button input {
+    width: 100px;
+    margin: 10px;
+}
