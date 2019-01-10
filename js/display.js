@@ -15,14 +15,11 @@ function displayList(itemArr, ul) {
 }
 
 function clearList(ul) {
-  let child = ul.childNodes;
-  for (let i = child.length - 1; i >= 0; i--) {
-    ul.removeChild(child[i]);
-  }
+  ul.innerHTML = '';
 }
 
 function displayLeftItems(itemArr) {
-  leftItems.innerText = itemArr.length
+  leftItems.innerText = itemArr.length;
 }
 
 function displayNewItem(item, I) {
