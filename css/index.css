@@ -30,6 +30,8 @@
 }
 .list {
   height: 400px;
+  background: #DCDCDC;
+  overflow-y: scroll;
 }
 .footer {
   height: 80px;
@@ -56,4 +58,10 @@
 }
 li:hover .delete_btn {
   display: inline-block;
+}
+li {
+  height: 22px;
+}
+li:hover {
+  background: #FFFFFF;
 }
