@@ -52,4 +52,8 @@
 }
 .delete_btn {
   float: right;
+  display: none;
+}
+li:hover .delete_btn {
+  display: inline-block;
 }
