@@ -2,7 +2,6 @@ function clickAll() {
   state = 'all';
   clearList(ul);
   displayList(todoList, ul, state);
-  displayLeftItems(todoList.getActive());
 }
 
 function clickActive() {
@@ -49,9 +48,8 @@ function add(event) {
     if (state !== 'completed') {
       displayOneItem(item, ul);
     }
-    let activeList = todoList.getActive();
-    displayLeftItems(activeList);
-    displayClearCompleted(activeList);
+    displayLeftItems(todoList.getActive());
+    displayClearCompleted(todoList.getCompleted());
     input.value = '';
   }
 }
@@ -105,9 +103,8 @@ function complete(event) {
   checkbox.setAttribute('disabled', true);
   clearList(ul);
   displayList(todoList, ul, state);
-  let activeList = todoList.getActive();
-  displayLeftItems(activeList);
-  displayClearCompleted(activeList);
+  displayLeftItems(todoList.getActive());
+  displayClearCompleted(todoList.getCompleted());
 }
 
 function deleteItem(event) {
@@ -118,10 +115,9 @@ function deleteItem(event) {
     });
     todoList.delete(index);
     clearList(ul);
-    displayList(todoList, ul, state)
-    let activeList = todoList.getActive();
-    displayLeftItems(activeList);
-    displayClearCompleted(activeList);
+    displayList(todoList, ul, state);
+    displayLeftItems(todoList.getActive());
+    displayClearCompleted(todoList.getCompleted());
   }
 }
 
@@ -130,4 +126,5 @@ function clearCompleted() {
   localStorage.setItem('todoList', JSON.stringify(todoList.list));
   clearList(ul);
   displayList(todoList, ul, state);
+  displayClearCompleted(todoList.getCompleted());
 }
