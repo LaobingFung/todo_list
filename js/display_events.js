@@ -1,20 +1,17 @@
 function clickAll() {
-  state = 'all';
   clearList(ul);
-  displayList(todoList.getAll(), ul);
+  displayList(todoList, ul, 'all');
   displayLeftItems(todoList.getActive());
 }
 
 function clickActive() {
-  state = 'active';
   clearList(ul);
-  displayList(todoList.getActive(), ul);
+  displayList(todoList, ul, 'active');
 }
 
 function clickCompleted() {
-  state = 'completed';
   clearList(ul);
-  displayList(todoList.getCompleted(), ul);
+  displayList(todoList, ul, 'completed');
 }
 
 function clearList(ul) {
@@ -25,7 +22,19 @@ function displayLeftItems(itemArr) {
   leftItems.innerText = itemArr.length;
 }
 
-function displayList(itemArr, ul) {
+function displayList(todoList, ul, state) {
+  let itemArr;
+  switch (state) {
+    case 'active':
+      itemArr = todoList.getActive();
+      break;
+    case 'completed':
+      itemArr = todoList.getCompleted();
+      break;
+    default:
+      itemArr = todoList.getAll();
+      break;
+  }
   itemArr.forEach((curItem) => displayOneItem(curItem, ul))
 }
 
@@ -103,17 +112,7 @@ function deleteItem(event) {
       return curItem.content === target.parentElement.children[1].innerText && curItem.completed === target.parentElement.children[1].classList.contains('completed') ? true : false;
     });
     todoList.delete(index);
-    switch (state) {
-      case 'active':
-        clickActive();
-        break;
-      case 'completed':
-        clickCompleted();
-        break;
-      default:
-        clickAll();
-        break;
-    }
+    displayList(todoList, ul, state)
     let activeList = todoList.getActive();
     displayLeftItems(activeList);
     displayClearCompleted(activeList);
@@ -123,15 +122,5 @@ function deleteItem(event) {
 function clearCompleted() {
   todoList.list = todoList.getActive();
   localStorage.setItem('todoList', JSON.stringify(todoList.list));
-  switch (state) {
-    case 'active':
-      clickActive();
-      break;
-    case 'completed':
-      clickCompleted();
-      break;
-    default:
-      clickAll();
-      break;
-  }
+  displayList(todoList, ul, state);
 }

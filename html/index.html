@@ -5,10 +5,6 @@
     <title>
       Todo List
     </title>
-    <!--     <script src="../js/display.js">
-    </script>
-    <script src="../js/events.js">
-    </script> -->
     <script src="../js/items.js" type="text/javascript">
     </script>
     <script src="../js/todo_list.js" type="text/javascript">
@@ -28,16 +24,7 @@
         </div>
       </div>
       <div class="list">
-        <ul id="todoList" onclick="complete(event)">
-          <li>
-            <input type="checkbox"/>
-            <label class="completed">
-              content0
-            </label>
-            <button class="delete_btn">
-              X
-            </button>
-          </li>
+        <ul id="todoList" onclick="complete(event); deleteItem(event)">
         </ul>
       </div>
       <div class="footer">
