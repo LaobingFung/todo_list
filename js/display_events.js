@@ -128,5 +128,6 @@ function deleteItem(event) {
 function clearCompleted() {
   todoList.list = todoList.getActive();
   localStorage.setItem('todoList', JSON.stringify(todoList.list));
+  clearList(ul);
   displayList(todoList, ul, state);
 }
