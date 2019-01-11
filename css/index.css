@@ -41,9 +41,12 @@
   margin-bottom: 10px;
 }
 .count {
-  margin-left: 10px;
-  margin-right: 170px;
+  margin: 5px;
   display: inline-block;
+}
+.clear_btn {
+  margin: 5px;
+  float: right;
 }
 .state_button {
   text-align: center;
