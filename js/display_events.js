@@ -1,17 +1,20 @@
 function clickAll() {
+  state = 'all';
   clearList(ul);
-  displayList(todoList, ul, 'all');
+  displayList(todoList, ul, state);
   displayLeftItems(todoList.getActive());
 }
 
 function clickActive() {
+  state = 'active';
   clearList(ul);
-  displayList(todoList, ul, 'active');
+  displayList(todoList, ul, state);
 }
 
 function clickCompleted() {
+  state = 'completed';
   clearList(ul);
-  displayList(todoList, ul, 'completed');
+  displayList(todoList, ul, state);
 }
 
 function clearList(ul) {
@@ -100,6 +103,8 @@ function complete(event) {
   label.classList.add('completed');
   checkbox.setAttribute('checked', true);
   checkbox.setAttribute('disabled', true);
+  clearList(ul);
+  displayList(todoList, ul, state);
   let activeList = todoList.getActive();
   displayLeftItems(activeList);
   displayClearCompleted(activeList);
@@ -112,6 +117,7 @@ function deleteItem(event) {
       return curItem.content === target.parentElement.children[1].innerText && curItem.completed === target.parentElement.children[1].classList.contains('completed') ? true : false;
     });
     todoList.delete(index);
+    clearList(ul);
     displayList(todoList, ul, state)
     let activeList = todoList.getActive();
     displayLeftItems(activeList);
