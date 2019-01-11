@@ -26,7 +26,7 @@ function displayLeftItems(itemArr) {
 }
 
 function displayList(itemArr, ul) {
-  itemArr.forEach((curItem) => displayNewItem(curItem, ul))
+  itemArr.forEach((curItem) => displayOneItem(curItem, ul))
 }
 
 function add(event) {
@@ -35,7 +35,7 @@ function add(event) {
     let item = new Item(content, false);
     todoList.add(item);
     if (state !== 'completed') {
-      displayNewItem(item, ul);
+      displayOneItem(item, ul);
     }
     let activeList = todoList.getActive();
     displayLeftItems(activeList);
@@ -44,21 +44,23 @@ function add(event) {
   }
 }
 
-function displayNewItem(item, ul) {
+function displayOneItem(item, ul) {
   let li = document.createElement('li');
   let checkbox = document.createElement('input');
   checkbox.setAttribute('type', 'checkbox');
-  let content = document.createElement('label');
-  content.innerText = item.content;
+  let label = document.createElement('label');
+  label.innerText = item.content;
   if (item.completed === true) {
-    content.classList.add('completed');
+    label.classList.add('completed');
+    checkbox.setAttribute('checked', true);
+    checkbox.setAttribute('disabled', true);
   }
   let btn = document.createElement('button');
   btn.innerText = 'X';
   btn.classList.add('btn_hide');
   btn.classList.add('delete_btn');
   li.appendChild(checkbox);
-  li.appendChild(content);
+  li.appendChild(label);
   li.appendChild(btn);
   ul.appendChild(li);
 }
