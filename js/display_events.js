@@ -82,12 +82,11 @@ function complete(event) {
     index = todoList.list.findIndex((curItem) => curItem.content === target.children[1].innerText && curItem.completed === false);
     label = target.children[1];
     checkbox = target.children[0];
-  }
-  if (target.nodeName === 'INPUT' || target.nodeName === 'LABEL') {
+  } else if (target.nodeName === 'INPUT' || target.nodeName === 'LABEL') {
     index = todoList.list.findIndex((curItem) => curItem.content === target.parentElement.children[1].innerText && curItem.completed === false);
     label = target.parentElement.children[1];
     checkbox = target.parentElement.children[0];
-  }
+  } else return null;
   todoList.complete(index);
   label.classList.add('completed');
   checkbox.setAttribute('checked', true);
@@ -95,4 +94,28 @@ function complete(event) {
   let activeList = todoList.getActive();
   displayLeftItems(activeList);
   displayClearCompleted(activeList);
+}
+
+function deleteItem(event) {
+  let target = event.target;
+  if (target.nodeName === 'BUTTON') {
+    let index = todoList.list.findIndex((curItem) => {
+      return curItem.content === target.parentElement.children[1].innerText && curItem.completed === target.parentElement.children[1].classList.contains('completed') ? true : false;
+    });
+    todoList.delete(index);
+    switch (state) {
+      case 'active':
+        clickActive();
+        break;
+      case 'completed':
+        clickCompleted();
+        break;
+      default:
+        clickAll();
+        break;
+    }
+    let activeList = todoList.getActive();
+    displayLeftItems(activeList);
+    displayClearCompleted(activeList);
+  }
 }
