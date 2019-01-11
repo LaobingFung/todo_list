@@ -119,3 +119,19 @@ function deleteItem(event) {
     displayClearCompleted(activeList);
   }
 }
+
+function clearCompleted() {
+  todoList.list = todoList.getActive();
+  localStorage.setItem('todoList', JSON.stringify(todoList.list));
+  switch (state) {
+    case 'active':
+      clickActive();
+      break;
+    case 'completed':
+      clickCompleted();
+      break;
+    default:
+      clickAll();
+      break;
+  }
+}
