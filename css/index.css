@@ -55,6 +55,9 @@
   width: 100px;
   margin: 10px;
 }
+.state_checked {
+  background: #FBFF00;
+}
 .delete_btn {
   float: right;
   display: none;

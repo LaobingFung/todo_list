@@ -2,18 +2,27 @@ function clickAll() {
   state = 'all';
   clearList(ul);
   displayList(todoList, ul, state);
+  document.getElementById('all').classList.add('state_checked');
+  document.getElementById('active').classList.remove('state_checked');
+  document.getElementById('completed').classList.remove('state_checked');
 }
 
 function clickActive() {
   state = 'active';
   clearList(ul);
   displayList(todoList, ul, state);
+  document.getElementById('all').classList.remove('state_checked');
+  document.getElementById('active').classList.add('state_checked');
+  document.getElementById('completed').classList.remove('state_checked');
 }
 
 function clickCompleted() {
   state = 'completed';
   clearList(ul);
   displayList(todoList, ul, state);
+  document.getElementById('all').classList.remove('state_checked');
+  document.getElementById('active').classList.remove('state_checked');
+  document.getElementById('completed').classList.add('state_checked');
 }
 
 function clearList(ul) {

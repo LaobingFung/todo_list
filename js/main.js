@@ -7,4 +7,4 @@ var input = document.getElementById('todoInput');
 var clearBtn = document.getElementById('clear');
 displayClearCompleted(todoList.getCompleted());
 displayLeftItems(todoList.getActive());
-clickAll()
+clickAll();
